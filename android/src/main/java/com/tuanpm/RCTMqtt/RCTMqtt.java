@@ -65,7 +65,6 @@ public class RCTMqtt implements MqttCallbackExtended {
         defaultOptions.putString("user", "");
         defaultOptions.putString("pass", "");
         defaultOptions.putBoolean("will", false);
-        defaultOptions.putInt("protocolLevel", 4);
         defaultOptions.putString("willMsg", "");
         defaultOptions.putString("willtopic", "");
         defaultOptions.putInt("willQos", 0);
