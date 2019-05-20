@@ -65,7 +65,6 @@ public class RCTMqtt implements MqttCallbackExtended {
         defaultOptions.putString("user", "");
         defaultOptions.putString("pass", "");
         defaultOptions.putBoolean("will", false);
-        defaultOptions.putInt("protocolLevel", 4);
         defaultOptions.putString("willMsg", "");
         defaultOptions.putString("willtopic", "");
         defaultOptions.putInt("willQos", 0);
@@ -93,9 +92,6 @@ public class RCTMqtt implements MqttCallbackExtended {
         }
         if (params.hasKey("clientId")) {
             defaultOptions.putString("clientId", params.getString("clientId"));
-        }
-        if (params.hasKey("protocolLevel")) {
-            defaultOptions.putInt("protocolLevel", params.getInt("protocolLevel"));
         }
         if (params.hasKey("clean")) {
             defaultOptions.putBoolean("clean", params.getBoolean("clean"));
@@ -145,6 +141,7 @@ public class RCTMqtt implements MqttCallbackExtended {
         }
 
         mqttOptions.setKeepAliveInterval(options.getInt("keepalive"));
+        mqttOptions.setCleanSession(options.getBoolean("clean"));
         mqttOptions.setMaxInflight(1000);
         mqttOptions.setConnectionTimeout(10);
 
